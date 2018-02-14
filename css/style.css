@@ -1,6 +1,24 @@
 .title{
     width: 100%;
+    background: url("../img/test.jpg");
+    text-align: center;
 }
 .sliderStyle{
-    width: 80%;
+    text-align: center;
+    width: 90%;
 }
+#map {
+    width: 100%;
+    height: 500px;
+    background-color: grey;
+  }
+
+body{
+    
+    max-width: 960px;
+    margin: auto;
+}
+div{
+    margin: auto;
+}
+ 
