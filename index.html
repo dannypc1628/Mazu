@@ -9,6 +9,7 @@
     
     <script type="application/javascript" src="js/getDataMakeMarker.js"></script>
     <script type="application/javascript" src="js/map.js"></script>
+    
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
     
     <title>建廟年表</title>
@@ -19,21 +20,12 @@
     </div>
     <div class="timeLine">
         <input type="range" id="slider" class="sliderStyle" min="1500" max="1900" step="1">
-        <p>西元<span id="showYear"></span></p>
+        <span id="thisYear" class=""></span>
     </div>
 
     <div id="map"></div>
 
-    <script>
-        var slider = document.getElementById("slider");
-        var showYear = document.getElementById("showYear");
-        showYear.innerHTML = slider.value;
-
-        slider.oninput = function(){
-            showYear.innerHTML = slider.value;
-        }
-    </script>
     
-   
+    <script type="application/javascript" src="js/year.js"></script>
 </body>
 </html>
