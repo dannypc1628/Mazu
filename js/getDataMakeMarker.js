@@ -2,14 +2,14 @@
 var dataTable;
 function getData(map) {
     console.log("gogog");
-    $.get('data2.json', function (json) {
+    $.get('data3SortSort.json', function (json) {
         
         var  y = jQuery.parseJSON(JSON.stringify(json));
                 
             console.log(y.table);
-            y.table.sort( function(a, b){   
-                return parseInt(a.regularYear) > parseInt(b.regularYear) ? 1 : parseInt(a.regularYear) == parseInt(b.regularYear) ? 0 : -1;
-            }); 
+            // y.table.sort( function(a, b){   
+            //     return parseInt(a.regularYear) > parseInt(b.regularYear) ? 1 : parseInt(a.regularYear) == parseInt(b.regularYear) ? 0 : -1;
+            // }); 
             dataTable = y.table;
             console.log(y.table);   
         // for (var i = 1; i < y.table.length; i++) {
