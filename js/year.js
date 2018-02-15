@@ -3,12 +3,16 @@ var thisYear = document.getElementById("thisYear");
 thisYear.innerHTML = slider.value+"年";
 var sliderWidth = document.getElementById('slider').offsetWidth;
 
+var subtitleShow = document.getElementById("subtitleShow");
+
 var previousYear ;
 previousYear = parseInt(slider.value);
 
 
+
+
 function moveThisYear(){
-    position = (slider.value-slider.min)/(slider.max-slider.min)*100;
+    var position = (slider.value-slider.min)/(slider.max-slider.min)*100;
     if(position>=95){
         thisYear.style.left = "95%";
     }
@@ -24,8 +28,20 @@ function previousYearUpdata(){
     moveThisYear();
 }
 
+function buildSubtitle(){
+    for(var i = 0 ;i<dataTable.length;i++){
+        var aSpan = document.createElement("span");
+        aSpan.innerHTML = dataTable[i].county+dataTable[i].name+" "+dataTable[i].year;
+        aSpan.dataset.regularYear = dataTable[i].regularYear;
+        aSpan.dataset.id = i;
+        aSpan.style.display="none";
 
-function addYear(){
+        subtitleShow.appendChild(aSpan);
+    }
+}
+
+
+function autoAddYear(){
     slider.value = parseInt(previousYear) + 1;
     thisYear.innerHTML =  slider.value+"年";
     showTime(previousYear, slider.value);
@@ -35,8 +51,7 @@ function addYear(){
         clearInterval(timer);
 }
 
-
-var timer = setInterval(addYear,300);
+ //var timer = setInterval(autoAddYear,300);
 
 
 slider.oninput = function(){
@@ -44,6 +59,9 @@ slider.oninput = function(){
     showTime(previousYear, slider.value);
     previousYearUpdata();
 }
+
+
+
 var time=0;
 function showTime(oldYear,newYear){
     newYear = parseInt(newYear);
@@ -56,7 +74,19 @@ function showTime(oldYear,newYear){
 
     var temple = dataTable[point];
 
-    makeMarker(map,temple);
+    addMarker(map,temple);
+    showSubtitle(point,newYear);
+}
+
+function showSubtitle(point,newYear){
+    for(var i = 0 ;i<=point;i++){
+        var aSpan = document.querySelector("[data-id=\""+i+"\"]"); 
+        //aSpan.classList.remove('showDataInitial');
+        var position = (15-(newYear-parseInt(aSpan.dataset.regularYear)))/15*100;
+        aSpan.style.left = position + "%";
+        aSpan.style.display="block";
+    }
+
 }
 
 function yearSearch(searchYear,pointA,pointB){
@@ -69,7 +99,7 @@ function yearSearch(searchYear,pointA,pointB){
         if(pointA > 0){
             if(parseInt(dataTable[pointA-1].regularYear)<searchYear){
                 console.log("return pointA "+ pointA + "   [pointA-1].regularYear)<searchYear");
-                return pointA;
+                return pointA-1;
             }
             else{
                 return yearSearch(searchYear,Math.ceil((pointA+0)/2),pointA);

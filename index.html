@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <script type="application/javascript" src="js/getDataMakeMarker.js"></script>
+    <script type="application/javascript" src="js/getDataAddMarker.js"></script>
     <script type="application/javascript" src="js/map.js"></script>
     
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
@@ -22,8 +22,11 @@
         <input type="range" id="slider" class="sliderStyle" min="1600" max="1900" step="1" value="1600">
         <span id="thisYear"></span>
     </div>
-    <div class="show">
+    <div id="subtitleShow">
+        <span>資料來源:維基百科-台灣媽祖信仰</span>
     </div>
+    <br>
+    <br>
 
     <div id="map"></div>
 

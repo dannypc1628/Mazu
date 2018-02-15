@@ -19,11 +19,12 @@ function getData(map) {
      
         //   }
         //   time++;
+        buildSubtitle();
           
        });
 }
 
-function makeMarker(map,temple){
+function addMarker(map,temple){
     var latLng = new google.maps.LatLng(temple.gps.lat,temple.gps.lng);
 
     var marker = new google.maps.Marker({

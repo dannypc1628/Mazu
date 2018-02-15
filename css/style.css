@@ -7,10 +7,10 @@
     
     width: 100%;
 }
-.showData{
+#subtitleShow span{
     position: absolute;
-    left:0%;
 }
+
 #thisYear{
     position: relative;
 }
