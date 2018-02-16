@@ -63,6 +63,7 @@ slider.oninput = function(){
 
 
 var time=0;
+var oldPoint=0;
 function showTime(oldYear,newYear){
     newYear = parseInt(newYear);
     console.log(newYear);
@@ -72,9 +73,11 @@ function showTime(oldYear,newYear){
     console.log(point);
     console.log(dataTable[point].location+" "+dataTable[point].name+" "+dataTable[point].year);
 
-    var temple = dataTable[point];
-
-    addMarker(map,temple);
+    for(var i = oldPoint;i<=point;i++){
+        var temple = dataTable[i];
+        addMarker(map,temple);
+    }
+    oldPoint = point;
     showSubtitle(point,newYear);
 }
 
