@@ -29,6 +29,7 @@ function addMarker(map,temple){
 
     var marker = new google.maps.Marker({
         position: latLng,
+        label: temple.regularYear,
         map: map
     });
     var infoWindow = new google.maps.InfoWindow({
