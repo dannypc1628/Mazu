@@ -8,7 +8,7 @@
     width: 100%;
 }
 #subtitleShow span{
-    position: absolute;
+    position: relative;
 }
 
 #thisYear{
@@ -28,4 +28,6 @@ body{
 div{
     margin: auto;
 }
+
+
  

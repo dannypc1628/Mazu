@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="application/javascript" src="js/getDataAddMarker.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>檢視資料</title>
+    
+</head>
+<body>
+
+    <table  id="table">
+ 
+    
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+            </tr>
+        </thead>
+    </table>
+
+    <script>
+    // getData(1);
+    // $(document).ready(function(){
+    //     // $('#table').DataTable({
+    //     //     data: dataTable,
+    //     //     columns: [
+
+    //     // ]
+    //     // });
+    //     $("#table").DataTable(dataTable);
+    // });
+    var table = $('#table').DataTable( {
+    ajax: {
+        url: "data3SortSort.json",
+        dataSrc:"table"
+    },
+    columns: [ 
+        { "data": "county" },
+        { "data": "location" },
+        { "data": "name" },
+        { "data": "year" },
+        { "data": "regularYear" },
+        { "data": "note" },
+        { "data": "googleName" },
+        { "data": "address" },
+        { "data": "gps.lat" },
+        { "data": "gps.lng" }
+     ]
+    
+} );
+
+    </script>
+    
+</body>
+</html>

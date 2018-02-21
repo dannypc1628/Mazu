@@ -1,7 +1,10 @@
 var slider = document.getElementById("slider");
 var thisYear = document.getElementById("thisYear");
-thisYear.innerHTML = slider.value+"年";
-var sliderWidth = document.getElementById('slider').offsetWidth;
+thisYear.innerHTML = parseInt(slider.value)+"年";
+var sliderWidth = document.getElementById("slider").offsetWidth;
+var htmlWidth = document.getElementsByTagName("html") .offsetWidth;
+console.log("sli W= "+ sliderWidth);
+console.log("htm W= "+ htmlWidth);
 
 var subtitleShow = document.getElementById("subtitleShow");
 
@@ -42,21 +45,23 @@ function buildSubtitle(){
 
 
 function autoAddYear(){
-    slider.value = parseInt(previousYear) + 1;
+    slider.value = parseFloat(slider.value) + 0.1;
     thisYear.innerHTML =  slider.value+"年";
-    showTime(previousYear, slider.value);
+    var isJump = false;
+    showTime(slider.value, isJump);
     previousYearUpdata();
 
-    if(previousYear==1900)
+    if(previousYear==1895)
         clearInterval(timer);
 }
 
- //var timer = setInterval(autoAddYear,300);
+ // var timer = setInterval(autoAddYear,150);
 
 
 slider.oninput = function(){
-    thisYear.innerHTML =  slider.value+"年";
-    showTime(previousYear, slider.value);
+    thisYear.innerHTML =  parseInt(slider.value)+"年";
+    var isJump = false;
+    showTime(slider.value, isJump);
     previousYearUpdata();
 }
 
@@ -64,7 +69,7 @@ slider.oninput = function(){
 
 var time=0;
 var oldPoint=0;
-function showTime(oldYear,newYear){
+function showTime(newYear,isJump){
     newYear = parseInt(newYear);
     console.log(newYear);
     time=0;
@@ -73,10 +78,20 @@ function showTime(oldYear,newYear){
     console.log(point);
     console.log(dataTable[point].location+" "+dataTable[point].name+" "+dataTable[point].year);
 
-    for(var i = oldPoint+1;i<=point;i++){
-        var temple = dataTable[i];
-        addMarker(map,temple);
+    if(isJump){
+        maker.setup(null);
+        for(var i = 0 ; i<=point ; i++){
+            var temple = dataTable[i];
+            addMarker(map,temple);
+        }
     }
+    else{
+        for(var i = oldPoint+1 ; i<=point ; i++){
+            var temple = dataTable[i];
+            addMarker(map,temple);
+        }
+    }
+
     oldPoint = point;
     showSubtitle(point);
 }
@@ -87,7 +102,7 @@ function showSubtitle(point){
         //aSpan.classList.remove('showDataInitial');
         var position = (15-(parseFloat(slider.value)-parseFloat(aSpan.dataset.regularYear)))/15*100;
         aSpan.style.left = position + "%";
-        if(position>-20){
+        if(position>-100){
             aSpan.style.display="block";
         }
         else{
