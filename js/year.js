@@ -73,21 +73,27 @@ function showTime(oldYear,newYear){
     console.log(point);
     console.log(dataTable[point].location+" "+dataTable[point].name+" "+dataTable[point].year);
 
-    for(var i = oldPoint;i<=point;i++){
+    for(var i = oldPoint+1;i<=point;i++){
         var temple = dataTable[i];
         addMarker(map,temple);
     }
     oldPoint = point;
-    showSubtitle(point,newYear);
+    showSubtitle(point);
 }
 
-function showSubtitle(point,newYear){
+function showSubtitle(point){
     for(var i = 0 ;i<=point;i++){
         var aSpan = document.querySelector("[data-id=\""+i+"\"]"); 
         //aSpan.classList.remove('showDataInitial');
-        var position = (15-(newYear-parseInt(aSpan.dataset.regularYear)))/15*100;
+        var position = (15-(parseFloat(slider.value)-parseFloat(aSpan.dataset.regularYear)))/15*100;
         aSpan.style.left = position + "%";
-        aSpan.style.display="block";
+        if(position>-20){
+            aSpan.style.display="block";
+        }
+        else{
+            aSpan.style.display="none";
+        }
+        
     }
 
 }
