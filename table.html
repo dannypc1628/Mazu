@@ -12,24 +12,25 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" >
+    <link rel="stylesheet" href="css/style.css" >
     <title>檢視資料</title>
     
 </head>
-<body>
+<body class="mx-auto">
 <div class="row">
     <table  id="table" class="table table-striped table-bordered dataTable">
          <thead>
             <tr>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>10</th>
+                <th>年\估算年</th>
+                <th>縣市</th>
+                <th>地區</th>
+                <th>名字</th>
+                <th>建築年</th>
+                <th>備註</th>
+                <th>google地圖名字</th>
+                <th>google地址</th>
+                <th>經度</th>
+                <th>緯度</th>
             </tr>
         </thead>
     </table>
@@ -62,7 +63,20 @@
         { "data": "address" },
         { "data": "gps.lat" },
         { "data": "gps.lng" }
-     ]
+     ],
+     language: {
+            "lengthMenu": "每頁顯示 _MENU_ 項",
+            "zeroRecords": "Nothing found - sorry",
+            "info": "目前位在第 _PAGE_ 頁，總共 _PAGES_ 頁",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search":         "搜尋:",
+            "paginate": {
+      
+                "next":       "下一頁",
+                "previous":   "上一頁"
+    }
+        }
     
 } );
 
