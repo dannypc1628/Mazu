@@ -18,17 +18,35 @@
     <title>建廟年表</title>
 </head>
 <body class="mx-auto">
-    <div class="jumbotron">
-        <h3>唐山過台灣，媽祖隨船來</h3>
-        <hr>
-        <span>1604~1895</span>
+    <div class="card ">
+        <!--<img src="img/DSC01456 (2).png" calss="card-img" alt="Card image">-->
+        <div class="card-body w-100 bg-light">
+            <div class="card-title">
+                    <h3>唐山過台灣，媽祖隨船來</h3>
+            </div>
+            <div class="card-subtitle border-top">
+                    <span>1604~1895</span>
+                    <div class="float-right">
+                            <a href="https://zh.wikipedia.org/wiki/台灣媽祖信仰" class="float-right">參考資料:維基百科-台灣媽祖信仰(2018/02/10)</a>
+                        </div>
+            </div>
+            <div class="card-text">
+               
+                
+                <br>
+                <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
+                <input class="btn btn-primary" type="button" onclick="go()" value="go">
+            </div>
+        </div>
     </div>
+    
+    
     <div class="timeLine">
         <input type="range" id="slider" class="sliderStyle" min="1600" max="1900" step="0.1" value="1600">
         <span id="thisYear"></span>
     </div>
     <div id="subtitleShow">
-        <span>資料來源:維基百科-台灣媽祖信仰</span>
+      
     </div>
     <br>
     <br>

@@ -26,10 +26,33 @@ function getData(map) {
 
 function addMarker(map,temple){
     var latLng = new google.maps.LatLng(temple.gps.lat,temple.gps.lng);
+    
+    var color;
+    var year30 = slider.value-temple.regularYear;
+    if(year30>30){
+         color = "rgb(0,255,0)";
+    }
+    else {
+        colorValue = parseInt(year30*255/30);
+        console.log("year30= "+year30)
+        console.log("colorValue= "+colorValue)
+        color = "rgb("+(255-colorValue)+","+colorValue+",0)";
+        console.log(color);
+    }
+
+    var iconStyle = {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: color,
+        fillOpacity: 1,
+        scale: Math.pow(2, 4) / 2,
+        strokeColor: 'white',
+        strokeWeight: 0.1
+    };
 
     var marker = new google.maps.Marker({
         position: latLng,
-        label: temple.regularYear,
+        //label: temple.regularYear,
+        icon: iconStyle,
         map: map
     });
     var infoWindow = new google.maps.InfoWindow({
@@ -43,7 +66,6 @@ function addMarker(map,temple){
         infoWindow.close(map,marker);
     });
 }
-
 
 
 

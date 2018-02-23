@@ -43,24 +43,31 @@ function buildSubtitle(){
     }
 }
 
+function stop(){
+    clearInterval(timer);
+}
+var timer;
+function go(){
+    timer = setInterval(autoAddYear,150);
+}
 
 function autoAddYear(){
     slider.value = parseFloat(slider.value) + 0.1;
     thisYear.innerHTML =  slider.value+"年";
-    var isJump = false;
+    var isJump = true;
     showTime(slider.value, isJump);
     previousYearUpdata();
 
     if(previousYear==1895)
-        clearInterval(timer);
+        stop();
 }
 
- // var timer = setInterval(autoAddYear,150);
+  
 
 
 slider.oninput = function(){
     thisYear.innerHTML =  parseInt(slider.value)+"年";
-    var isJump = false;
+    var isJump = true;
     showTime(slider.value, isJump);
     previousYearUpdata();
 }
@@ -74,15 +81,18 @@ function showTime(newYear,isJump){
     console.log(newYear);
     time=0;
     var point = yearSearch(newYear,Math.ceil(dataTable.length/2),dataTable.length);
+    var point30yearold = yearSearch(newYear-30,Math.ceil(dataTable.length/2),dataTable.length);
     console.log(time);
-    console.log(point);
+    console.log("point= "+point);
+    console.log("point30yearold= "+point30yearold);
     console.log(dataTable[point].location+" "+dataTable[point].name+" "+dataTable[point].year);
 
     if(isJump){
-        maker.setup(null);
-        for(var i = 0 ; i<=point ; i++){
-            var temple = dataTable[i];
-            addMarker(map,temple);
+        if(parseFloat(slider.value)-parseFloat(newYear)==0){
+            for(var i = point30yearold ; i<=point ; i++){
+                var temple = dataTable[i];
+                addMarker(map,temple);
+            }
         }
     }
     else{
