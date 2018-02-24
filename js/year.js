@@ -1,16 +1,3 @@
-var slider = document.getElementById("slider");
-var thisYear = document.getElementById("thisYear");
-thisYear.innerHTML = parseInt(slider.value)+"年";
-var sliderWidth = document.getElementById("slider").offsetWidth;
-var htmlWidth = document.getElementsByTagName("html") .offsetWidth;
-console.log("sli W= "+ sliderWidth);
-console.log("htm W= "+ htmlWidth);
-
-var subtitleShow = document.getElementById("subtitleShow");
-
-var previousYear ;
-previousYear = parseInt(slider.value);
-
 
 
 
@@ -31,25 +18,9 @@ function previousYearUpdata(){
     moveThisYear();
 }
 
-function buildSubtitle(){
-    for(var i = 0 ;i<dataTable.length;i++){
-        var aSpan = document.createElement("span");
-        aSpan.innerHTML = dataTable[i].county+dataTable[i].name+" "+dataTable[i].year;
-        aSpan.dataset.regularYear = dataTable[i].regularYear;
-        aSpan.dataset.id = i;
-        aSpan.style.display="none";
 
-        subtitleShow.appendChild(aSpan);
-    }
-}
 
-function stop(){
-    clearInterval(timer);
-}
-var timer;
-function go(){
-    timer = setInterval(autoAddYear,150);
-}
+
 
 function autoAddYear(){
     slider.value = parseFloat(slider.value) + 0.1;
@@ -63,66 +34,6 @@ function autoAddYear(){
 }
 
   
-
-
-slider.oninput = function(){
-    thisYear.innerHTML =  parseInt(slider.value)+"年";
-    var isJump = true;
-    showTime(slider.value, isJump);
-    previousYearUpdata();
-}
-
-
-
-var time=0;
-var oldPoint=0;
-function showTime(newYear,isJump){
-    newYear = parseInt(newYear);
-    console.log(newYear);
-    time=0;
-    var point = yearSearch(newYear,Math.ceil(dataTable.length/2),dataTable.length);
-    var point30yearold = yearSearch(newYear-30,Math.ceil(dataTable.length/2),dataTable.length);
-    console.log(time);
-    console.log("point= "+point);
-    console.log("point30yearold= "+point30yearold);
-    console.log(dataTable[point].location+" "+dataTable[point].name+" "+dataTable[point].year);
-
-    if(isJump){
-        if(parseFloat(slider.value)-parseFloat(newYear)==0){
-            for(var i = point30yearold ; i<=point ; i++){
-                var temple = dataTable[i];
-                addMarker(map,temple);
-            }
-        }
-    }
-    else{
-        for(var i = oldPoint+1 ; i<=point ; i++){
-            var temple = dataTable[i];
-            addMarker(map,temple);
-        }
-    }
-
-    oldPoint = point;
-    showSubtitle(point);
-}
-
-function showSubtitle(point){
-    for(var i = 0 ;i<=point;i++){
-        var aSpan = document.querySelector("[data-id=\""+i+"\"]"); 
-        //aSpan.classList.remove('showDataInitial');
-        var position = (15-(parseFloat(slider.value)-parseFloat(aSpan.dataset.regularYear)))/15*100;
-        aSpan.style.left = position + "%";
-        if(position>-100){
-            aSpan.style.display="block";
-        }
-        else{
-            aSpan.style.display="none";
-        }
-        
-    }
-
-}
-
 function yearSearch(searchYear,pointA,pointB){
     time = time+1;
     console.log("time =  "+ time + "  searchYear="+searchYear+"  pintA="+pointA+"  pointB="+pointB);
