@@ -8,7 +8,8 @@
     width: 100%;
 }
 #subtitleShow span{
-    position: relative;
+    position: absolute;
+    z-index: 1; 
 }
 
 #thisYear{

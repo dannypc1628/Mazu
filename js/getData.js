@@ -2,7 +2,7 @@
 var dataTable;
 function getData(map) {
     console.log("gogog");
-    $.get('data3SortSort.json', function (json) {
+    $.get('data.json', function (json) {
         
         var  y = jQuery.parseJSON(JSON.stringify(json));
                 
