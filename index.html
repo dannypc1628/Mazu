@@ -15,6 +15,7 @@
 
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUayTXWD6h2pdcPoEBdnnyRTRLvb_Qak8&callback=initMap"></script>
     
@@ -42,11 +43,16 @@
                 <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
                 
                 
-                <div class="btn-group float-right" role="group" >
-                    
-                    <input class="btn btn-outline-primary" type="button" onclick="speed(1)" value="慢">
-                    <input class="btn btn-outline-primary active" type="button" onclick="speed(2)" value="正常" checked="">
-                    <input class="btn btn-outline-primary" type="button" onclick="speed(3)" value="快">
+                <div class="btn-group btn-group-toggle float-right" role="group" data-toggle="buttons">
+                    <label class="btn btn-outline-primary">慢
+                        <input type="radio" onclick="speed(1)"  >
+                    </label>
+                    <label class="btn btn-outline-primary active">正常
+                        <input type="radio" onclick="speed(2)"  >
+                    </label>
+                    <label class="btn btn-outline-primary">快
+                        <input type="radio" onclick="speed(3)"  >
+                    </label>
                 </div>
                 </div>
             </div>
