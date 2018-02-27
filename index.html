@@ -16,67 +16,69 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiwknv-_ifBK4SGS8lLtGzQ61JLYR7UYQ&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUayTXWD6h2pdcPoEBdnnyRTRLvb_Qak8&callback=initMap"></script>
     
     <title>唐山過台灣，媽祖隨船來</title>
 </head>
 <body class="mx-auto">
-    <div class="card ">
-        <!--<img src="img/DSC01456 (2).png" calss="card-img" alt="Card image">-->
-        <div class="card-body w-100 bg-light">
-            <div class="card-title">
-                    <h3>唐山過台灣，媽祖隨船來</h3>
-            </div>
-            <div class="card-subtitle border-top">
-                    <span>1604~1895</span>
-                    <div class="float-right">
-                            <a href="https://zh.wikipedia.org/wiki/台灣媽祖信仰" class="float-right">參考資料:維基百科-台灣媽祖信仰(2018/02/10)</a>
-                        </div>
-            </div>
-            <div class="card-text">
-               
+    <div class="container">
+        <div class="card ">
+            <!--<img src="img/DSC01456 (2).png" calss="card-img" alt="Card image">-->
+            <div class="card-body w-100 bg-light">
+                <div class="card-title">
+                        <h3>唐山過台灣，媽祖隨船來</h3>
+                </div>
+                <div class="card-subtitle border-top">
+                        <span>1604~1895</span>
+                        <div class="float-right">
+                                <a href="https://zh.wikipedia.org/wiki/台灣媽祖信仰" class="float-right">參考資料:維基百科-台灣媽祖信仰(2018/02/10)</a>
+                            </div>
+                </div>
+                <div class="card-text">
+                    
+                    
+                <br>
+                <input class="btn btn-primary" type="button" onclick="go()" value="開始">
+                <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
                 
-            <br>
-            <input class="btn btn-primary" type="button" onclick="go()" value="開始">
-            <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
-            
-            
-            <div class="btn-group float-right" role="group" >
                 
-                <input class="btn btn-outline-primary" type="button" onclick="speed(1)" value="慢">
-                <input class="btn btn-outline-primary active" type="button" onclick="speed(2)" value="正常" checked="">
-                <input class="btn btn-outline-primary" type="button" onclick="speed(3)" value="快">
-            </div>
+                <div class="btn-group float-right" role="group" >
+                    
+                    <input class="btn btn-outline-primary" type="button" onclick="speed(1)" value="慢">
+                    <input class="btn btn-outline-primary active" type="button" onclick="speed(2)" value="正常" checked="">
+                    <input class="btn btn-outline-primary" type="button" onclick="speed(3)" value="快">
+                </div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    
-    <div class="timeLine">
-        <input type="range" id="slider" class="sliderStyle" min="1600" max="1895" step="1" value="1600">
-        <span id="thisYear"></span>
-    </div>
-    <div>
-        <div id="subtitleShow" class="float-none "></div>
-        <div id="map"></div>
-    </div>
-    
-    <div id="fb">
 
-    </div>
 
-    
+        <div class="timeLine">
+            <input type="range" id="slider" class="sliderStyle" min="1600" max="1895" step="1" value="1600">
+            <span id="thisYear"></span>
+        </div>
+        <div>
+            <div id="subtitleShow" class="float-none "></div>
+            <div id="map"></div>
+        </div>
 
-    <hr>
-    <div><spn>劉長庚 &nbsp; 天主教輔仁大學資訊工程所</spn> 
-        <div class="float-right">
-            <a href="https://www.facebook.com/dannyliu.me/">fb:長庚的作業簿</a>
-            &nbsp; &nbsp;
-            <a href="https://github.com/dannypc1628/Mazu">程式碼:github</a>
-        </div> 
+        <div id="fb">
+
+        </div>
+
+
+
+        <hr>
+        <div><spn>劉長庚 &nbsp; 天主教輔仁大學資訊工程所</spn> 
+            <div class="float-right">
+                <a href="https://www.facebook.com/dannyliu.me/">fb:長庚的作業簿</a>
+                &nbsp; &nbsp;
+                <a href="https://github.com/dannypc1628/Mazu">程式碼:github</a>
+            </div> 
+        </div>
+        <br>
+        <br>
     </div>
-    <br>
-    <br>
    
 </body>
 </html>
