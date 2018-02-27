@@ -1,11 +1,11 @@
 
-function buildSubtitle(){
+function buildSubtitle(dataList){
     var subtitleShow = document.getElementById("subtitleShow");
     
-    for(var i = 0 ;i<dataTable.length;i++){
+    for(var i = 0 ;i<dataList.length;i++){
         var aSpan = document.createElement("span");
-        aSpan.innerHTML = dataTable[i].county+dataTable[i].name+" "+dataTable[i].year;
-        aSpan.dataset.regularYear = dataTable[i].regularYear;
+        aSpan.innerHTML = dataList[i].county+dataList[i].name+" "+dataList[i].year;
+        aSpan.dataset.regularYear = dataList[i].regularYear;
         aSpan.dataset.id = i;
         aSpan.style.display="none";
 
@@ -13,12 +13,15 @@ function buildSubtitle(){
     }
 }
 
-function showSubtitle(point){
+function showSubtitle(point,second){
+    //var initalShowYear = slider.value;
+    //var initalShowYear = parseInt(slider.value)+15;
     for(var i = 0 ;i<=point;i++){
         var aSpan = document.querySelector("[data-id=\""+i+"\"]"); 
         //aSpan.classList.remove('showDataInitial');
-        var position = (15-(parseFloat(slider.value)-parseFloat(aSpan.dataset.regularYear)))/15*100;
+        var position = (10-(parseInt(slider.value)-parseInt(aSpan.dataset.regularYear)))/10*100;
         aSpan.style.left = position + "%";
+        aSpan.style.transition = "all "+ second +"s linear";
         if(position>-100){
             aSpan.style.display="block";
         }

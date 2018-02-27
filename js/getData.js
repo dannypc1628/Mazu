@@ -1,6 +1,6 @@
 
 var dataTable;
-function getData(map) {
+function getData() {
     console.log("gogog");
     $.get('data.json', function (json) {
         
@@ -11,9 +11,11 @@ function getData(map) {
         //     return parseInt(a.regularYear) > parseInt(b.regularYear) ? 1 : parseInt(a.regularYear) == parseInt(b.regularYear) ? 0 : -1;
         // }); 
         dataTable = y.table;
-   
-        buildSubtitle();
-          
+        
+        buildSubtitle(dataTable);
+        buildMarkerList(dataTable);
+
+        
        });
 }
 

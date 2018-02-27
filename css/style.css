@@ -1,15 +1,11 @@
-.title{
-    width: 100%;
-    background: url("../img/test.jpg");
-    text-align: center;
-}
 .sliderStyle{
     
     width: 100%;
 }
 #subtitleShow span{
-    position: absolute;
+    position: relative;
     z-index: 1; 
+    max-width:  960px;
 }
 
 #thisYear{
@@ -17,7 +13,7 @@
 }
 #map {
     width: 100%;
-    height: 700px;
+    height: 600px;
     background-color: grey;
   }
 

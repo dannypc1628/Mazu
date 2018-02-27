@@ -23,7 +23,7 @@ function previousYearUpdata(){
 
 
 function autoAddYear(){
-    slider.value = parseFloat(slider.value) + 0.1;
+    slider.value = parseFloat(slider.value) + 1;
     thisYear.innerHTML =  slider.value+"年";
     var isJump = true;
     showTime(slider.value, isJump);
