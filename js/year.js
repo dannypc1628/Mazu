@@ -19,14 +19,17 @@ function previousYearUpdata(){
 }
 
 
-
+function showThisYear(year){
+    var tw = twYear(year);
+    thisYear.innerHTML = year+"年<br>"+ tw;
+}
 
 
 function autoAddYear(){
     slider.value = parseFloat(slider.value) + 1;
-    thisYear.innerHTML =  slider.value+"年";
-    var isJump = true;
-    showTime(slider.value, isJump);
+    showThisYear(parseInt(slider.value));
+ 
+    showTime(slider.value, previousYear);
     previousYearUpdata();
 
     if(previousYear==1895)

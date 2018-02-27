@@ -1,67 +1,79 @@
 var timer;
 
-var setIntervalMilliseconds = 500;
-
+var setIntervalMilliseconds = 1000;
+var previousYear ;
 
 $(document).ready(function() {
     var slider = document.getElementById("slider");
+
+    var thisYear = document.getElementById("thisYear"); 
+    showThisYear(parseInt(slider.value));
+
+   
+    previousYear = parseInt(slider.value);
+
+
     slider.oninput = function(){
-            thisYear.innerHTML =  parseInt(slider.value)+"年";
-            var isJump = false;
-            showTime(slider.value, isJump);
-            previousYearUpdata();
+        showThisYear(parseInt(slider.value));
+        var isJump = false;
+        showTime(slider.value, previousYear);
+        previousYearUpdata();
     }
 
 
-    var thisYear = document.getElementById("thisYear"); 
-    thisYear.innerHTML = parseInt(slider.value)+"年";
-
-    var previousYear ;
-    previousYear = parseInt(slider.value);
-
-    //getData得到資料後會直接執行buildSubtitle
-    getData();
+    //getData執行時機改於map initMap()中
+    
 
 });
-
+var goChecked = false;
 function go(){
     stop();
     timer = setInterval(autoAddYear,setIntervalMilliseconds);
+    goChecked = true;
 }
 
 function stop(){
     clearInterval(timer);
+    goChecked = false;
+}
+
+function speed(value){
+    if(value==1)
+        setIntervalMilliseconds=1900;
+    if(value==2)
+        setIntervalMilliseconds=1000;
+    if(value==3)
+        setIntervalMilliseconds=400;
+    if(goChecked){
+        clearInterval(timer);
+        timer = setInterval(autoAddYear,setIntervalMilliseconds); 
+    }
+    
 }
 
 
 var time=0;
 var oldPoint=0;
-function showTime(newYear,isJump){
+function showTime(newYear,previousYear){
     newYear = parseInt(newYear);
     console.log(newYear);
     time=0;
     var point = yearSearch(newYear,Math.ceil(dataTable.length/2),dataTable.length);
-    var point30yearold = yearSearch(newYear-30,Math.ceil(dataTable.length/2),dataTable.length);
-    console.log(time);
-    console.log("point= "+point);
-    console.log("point30yearold= "+point30yearold);
-    console.log(dataTable[point].location+" "+dataTable[point].name+" "+dataTable[point].year);
+    var oldYearPoint = yearSearch(newYear-1,Math.ceil(dataTable.length/2),dataTable.length);
+    var old30YearPoint ;
+    if((newYear-previousYear)>30)
+        old30YearPoint = yearSearch(previousYear-30,Math.ceil(dataTable.length/2),dataTable.length);
+    else
+        old30YearPoint= yearSearch(newYear-30,Math.ceil(dataTable.length/2),dataTable.length);
+        // console.log(time);
+        // console.log("point= "+point);
+        // console.log(dataTable[point].location+" "+dataTable[point].name+" "+dataTable[point].year);
 
-    showMarker(point);
-    // if(isJump){
-    //     if(parseFloat(slider.value)-parseFloat(newYear)==0){
-    //         for(var i = point30yearold ; i<=point ; i++){
-    //             var temple = dataTable[i];
-    //             addMarker(map,temple);
-    //         }
-    //     }
-    // }
-    // else{
-    //     for(var i = oldPoint+1 ; i<=point ; i++){
-    //         var temple = dataTable[i];
-    //         addMarker(map,temple);
-    //     }
-    // }
+    showMarker(point,oldYearPoint);
+
+    for(var i = old30YearPoint ;i<=  point ;i++ ){
+        changeMarkerStyle(i,newYear);
+    }
 
     oldPoint = point;
   //  showSubtitle(point,setIntervalMilliseconds/1000);

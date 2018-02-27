@@ -9,6 +9,7 @@ function initMap() {
       zoom: 7,
       center: uluru
     });
+    getData();
   }
 
 function addMarker(map,temple){
@@ -30,15 +31,16 @@ function addMarker(map,temple){
     var iconStyle = {
         path: google.maps.SymbolPath.CIRCLE,
         fillColor: "rgb(255,0,0)",
-        fillOpacity: 0.3,
+        fillOpacity: 1,
         scale: Math.pow(2, 4) / 2,
-        strokeColor: 'red',
-        strokeWeight: 2
+        trokeColor: 'white',
+        strokeWeight: 0.4,
     };
 
     var marker = new google.maps.Marker({
+        dataYear:temple.regularYear,
         position: latLng,
-        label: temple.name,
+        //label:temple.name,
         icon: iconStyle,
         map: map
     });
@@ -75,9 +77,52 @@ function buildMarkerList(templeList){
     }
 }
 
-function showMarker(point){
-    if(point!=0)
-    markerList[point].setVisible(true);
+function showMarker(point,oldPoint){
+    if(point!=0){
+        // if(oldPoint==0){
+        //     markerList[1].setVisible(true);
+        // }
+        // else{
+        //     for(var i = oldPoint ; i<=point ; i++)
+        //         markerList[i].setVisible(true);
+        // }
+        for(var i = 1 ; i<=point ; i++)
+          markerList[i].setVisible(true);
+    }
+    for(var i = point+1 ; i<markerList.length ; i++)
+        markerList[i].setVisible(false);
+    
+}
+
+function changeMarkerStyle(point,thisYear){
+    var year = parseInt(markerList[point].dataYear);
+    
+    var yearOld = thisYear - year;
+    var colorValue = parseInt( yearOld *255/ 30);
+    var color = "rgb("+(255-colorValue)+","+parseInt(colorValue*5/7)+",0)";
+console.log("colorValue "+colorValue);
+console.log("yearOld "+yearOld);
+console.log("color "+color);
+    var Opacity = 1;
+    if(yearOld > 30){
+       // Opacity=0.1;
+        color = "rgb(0,188,0)";
+    }
+ 
+    var iconStyle = {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: color,
+        fillOpacity: Opacity,
+        scale: Math.pow(2, 4) / 2,
+        strokeColor: 'white',
+        strokeWeight: 0.4
+    };
+
+    markerList[point].setIcon(iconStyle);
+   
+    // if(yearOld > 10){
+    //     markerList[point].setLabel("");
+    // }
 }
 
 

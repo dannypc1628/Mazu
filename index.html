@@ -9,6 +9,7 @@
     <script type="application/javascript" src="js/getData.js"></script>
     <script type="application/javascript" src="js/map.js"></script>
     <script type="application/javascript" src="js/year.js"></script>
+    <script type="application/javascript" src="js/twYear.js"></script>
     <script type="application/javascript" src="js/subtitle.js"></script>
     <script type="application/javascript" src="js/Main.js"></script>
 
@@ -35,16 +36,24 @@
             <div class="card-text">
                
                 
-                <br>
-                <input class="btn btn-primary" type="button" onclick="go()" value="開始">
-                <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
+            <br>
+            <input class="btn btn-primary" type="button" onclick="go()" value="開始">
+            <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
+            
+            
+            <div class="btn-group float-right" role="group" >
+                
+                <input class="btn btn-outline-primary" type="button" onclick="speed(1)" value="慢">
+                <input class="btn btn-outline-primary active" type="button" onclick="speed(2)" value="正常" checked="">
+                <input class="btn btn-outline-primary" type="button" onclick="speed(3)" value="快">
+            </div>
             </div>
         </div>
     </div>
     
     
     <div class="timeLine">
-        <input type="range" id="slider" class="sliderStyle" min="1600" max="1900" step="1" value="1600">
+        <input type="range" id="slider" class="sliderStyle" min="1600" max="1895" step="1" value="1600">
         <span id="thisYear"></span>
     </div>
     <div>
