@@ -39,15 +39,16 @@ function stop(){
 
 function speed(value){
     if(value==1)
-        setIntervalMilliseconds=1900;
+        setIntervalMilliseconds=1500;
     if(value==2)
         setIntervalMilliseconds=1000;
     if(value==3)
-        setIntervalMilliseconds=400;
+        setIntervalMilliseconds=500;
     if(goChecked){
         clearInterval(timer);
         timer = setInterval(autoAddYear,setIntervalMilliseconds); 
     }
+    console.log(value)
     
 }
 
