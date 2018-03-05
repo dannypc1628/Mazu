@@ -75,7 +75,7 @@ function showTime(newYear,previousYear){
     for(var i = old30YearPoint ;i<=  point ;i++ ){
         changeMarkerStyle(i,newYear);
     }
-
+    twCounty(newYear);
     oldPoint = point;
   //  showSubtitle(point,setIntervalMilliseconds/1000);
 }
