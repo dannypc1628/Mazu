@@ -32,7 +32,7 @@ function addMarker(map,temple){
         path: google.maps.SymbolPath.CIRCLE,
         fillColor: "rgb(255,0,0)",
         fillOpacity: 1,
-        scale: Math.pow(2, 4) / 2,
+        scale: Math.pow(2, 4) / 3,
         trokeColor: 'white',
         strokeWeight: 0.4,
     };
@@ -113,7 +113,7 @@ console.log("color "+color);
         path: google.maps.SymbolPath.CIRCLE,
         fillColor: color,
         fillOpacity: Opacity,
-        scale: Math.pow(2, 4) / 2,
+        scale: Math.pow(2, 4) / 3,
         strokeColor: 'white',
         strokeWeight: 0.4
     };
