@@ -1,6 +1,6 @@
 var timer;
 
-var setIntervalMilliseconds = 1000;
+const deafultIntervalMilliseconds = 1000;
 var previousYear ;
 
 $(document).ready(function() {
@@ -38,12 +38,10 @@ function stop(){
 }
 
 function speed(value){
-    if(value==1)
-        setIntervalMilliseconds=1500;
-    if(value==2)
-        setIntervalMilliseconds=1000;
-    if(value==3)
-        setIntervalMilliseconds=500;
+    let setIntervalMilliseconds = deafultIntervalMilliseconds;
+    if(value>0)
+      setIntervalMilliseconds = setIntervalMilliseconds / value;
+    
     if(goChecked){
         clearInterval(timer);
         timer = setInterval(autoAddYear,setIntervalMilliseconds); 

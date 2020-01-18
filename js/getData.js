@@ -15,7 +15,9 @@ function getData() {
         buildSubtitle(dataTable);
         buildMarkerList(dataTable);
 
-        
+        speed(2)
+        go();
+
        });
 }
 
