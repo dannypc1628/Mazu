@@ -2,7 +2,7 @@
 var dataTable;
 function getData() {
     console.log("gogog");
-    $.get('data.json', function (json) {
+    $.get('data/mazu_temple.json', function (json) {
         
         var  y = jQuery.parseJSON(JSON.stringify(json));
                 
