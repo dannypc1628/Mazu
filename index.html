@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="application/javascript" src="js/jquery-3.5.1.min.js"></script>
     <script type="application/javascript" src="js/getData.js"></script>
     <script type="application/javascript" src="js/map.js"></script>
     <script type="application/javascript" src="js/year.js"></script>
@@ -15,46 +16,49 @@
     <script type="application/javascript" src="js/Main.js"></script>
 
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUayTXWD6h2pdcPoEBdnnyRTRLvb_Qak8&callback=initMap"></script>
-    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="application/javascript" src="js/bootstrap.min.js"></script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUayTXWD6h2pdcPoEBdnnyRTRLvb_Qak8&callback=initMap"></script>
+
     <title>唐山過台灣，媽祖隨船來</title>
 </head>
+
 <body class="mx-auto">
     <div class="container">
         <div class="card ">
             <!--<img src="img/DSC01456 (2).png" calss="card-img" alt="Card image">-->
             <div class="card-body w-100 bg-light">
                 <div class="card-title">
-                        <h3>唐山過台灣，媽祖隨船來</h3>
+                    <h3>唐山過台灣，媽祖隨船來</h3>
                 </div>
                 <div class="card-subtitle border-top">
-                        <span>1604~1895</span>
-                        <div class="float-right">
-                                <a href="https://zh.wikipedia.org/wiki/台灣媽祖信仰" class="float-right">參考資料:維基百科-台灣媽祖信仰(2018/02/10)</a>
-                            </div>
+                    <span>1604~1895</span>
+                    <div class="float-right">
+                        <a href="https://zh.wikipedia.org/wiki/台灣媽祖信仰"
+                            class="float-right">參考資料:維基百科-台灣媽祖信仰(2018/02/10)</a>
+                    </div>
                 </div>
                 <div class="card-text">
-                    
-                    
-                <br>
-                <input class="btn btn-primary" type="button" onclick="go()" value="開始">
-                <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
-                
-                
-                <div class="btn-group btn-group-toggle float-right" role="group" data-toggle="buttons">
-                    <label class="btn btn-outline-primary" onclick="speed(1)">慢
-                        <input type="radio" >
-                    </label>
-                    <label class="btn btn-outline-primary active" onclick="speed(2)">正常
-                        <input type="radio" >
-                    </label>
-                    <label class="btn btn-outline-primary" onclick="speed(3)">快
-                        <input type="radio"  >
-                    </label>
-                </div>
+
+
+                    <br>
+                    <input class="btn btn-primary" type="button" onclick="go()" value="開始">
+                    <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
+
+
+                    <div class="btn-group btn-group-toggle float-right" role="group" data-toggle="buttons">
+                        <label class="btn btn-outline-primary" onclick="speed(1)">慢
+                            <input type="radio">
+                        </label>
+                        <label class="btn btn-outline-primary active" onclick="speed(2)">正常
+                            <input type="radio">
+                        </label>
+                        <label class="btn btn-outline-primary" onclick="speed(3)">快
+                            <input type="radio">
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,27 +80,29 @@
 
 
         <hr>
-        <div><spn>劉長庚 &nbsp; 天主教輔仁大學資訊工程所</spn> 
+        <div>
+            <spn>劉長庚 &nbsp; 天主教輔仁大學資訊工程所</spn>
             <div class="float-right">
                 <a href="https://www.facebook.com/dannyliu.me/">fb:長庚的作業簿</a>
                 &nbsp; &nbsp;
                 <a href="https://github.com/dannypc1628/Mazu">程式碼:github</a>
-            </div> 
+            </div>
         </div>
         <br>
         <br>
     </div>
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75610329-2"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-75610329-2');
+        gtag('config', 'UA-75610329-2');
     </script>
 
-   
+
 </body>
+
 </html>
