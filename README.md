@@ -2,7 +2,7 @@
 
 
 唐山過台灣，媽祖隨船來
-http://chronology.dannyliu.me/
+https://chronology.dannyliu.me/
 
 從臺灣第一間媽祖廟澎湖天后宮1604到乙未割台1895
 

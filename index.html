@@ -1,48 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script type="application/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="application/javascript" src="js/getData.js"></script>
+    <script type="application/javascript" src="js/map.js"></script>
+    <script type="application/javascript" src="js/year.js"></script>
+    <script type="application/javascript" src="js/twYear.js"></script>
+    <script type="application/javascript" src="js/twCounty.js"></script>
+    <script type="application/javascript" src="js/subtitle.js"></script>
+    <script type="application/javascript" src="js/main.js"></script>
+
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   
-    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="application/javascript" src="js/bootstrap.min.js"></script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUayTXWD6h2pdcPoEBdnnyRTRLvb_Qak8&callback=initMap"></script>
+
     <title>唐山過台灣，媽祖隨船來</title>
 </head>
+
 <body class="mx-auto">
     <div class="container">
         <div class="card ">
             <!--<img src="img/DSC01456 (2).png" calss="card-img" alt="Card image">-->
             <div class="card-body w-100 bg-light">
                 <div class="card-title">
-                        <h3>唐山過台灣，媽祖隨船來</h3>
+                    <h3>唐山過台灣，媽祖隨船來</h3>
                 </div>
                 <div class="card-subtitle border-top">
-                        <span>1604~1895</span>
-                        <div class="float-right">
-                                <a href="https://zh.wikipedia.org/wiki/台灣媽祖信仰" class="float-right">參考資料:維基百科-台灣媽祖信仰(2018/02/10)</a>
-                            </div>
+                    <span>1604~1895</span>
+                    <div class="float-right">
+                        <a href="https://zh.wikipedia.org/wiki/台灣媽祖信仰"
+                            class="float-right">參考資料:維基百科-台灣媽祖信仰(2018/02/10)</a>
+                    </div>
                 </div>
                 <div class="card-text">
-                    
-                    
-                <br>
-                <input class="btn btn-primary" type="button" onclick="go()" value="開始">
-                <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
-                
-                
-                <div class="btn-group btn-group-toggle float-right" role="group" data-toggle="buttons">
-                    <label class="btn btn-outline-primary" onclick="speed(1)">慢
-                        <input type="radio" >
-                    </label>
-                    <label class="btn btn-outline-primary active" onclick="speed(2)">正常
-                        <input type="radio" >
-                    </label>
-                    <label class="btn btn-outline-primary" onclick="speed(3)">快
-                        <input type="radio"  >
-                    </label>
-                </div>
+
+
+                    <br>
+                    <input class="btn btn-primary" type="button" onclick="go()" value="開始">
+                    <input class="btn btn-primary" type="button" onclick="stop()" value="暫停">
+
+
+                    <div class="btn-group btn-group-toggle float-right" role="group" data-toggle="buttons">
+                        <label class="btn btn-outline-primary" onclick="speed(1)">慢
+                            <input type="radio">
+                        </label>
+                        <label class="btn btn-outline-primary active" onclick="speed(2)">正常
+                            <input type="radio" checked>
+                        </label>
+                        <label class="btn btn-outline-primary" onclick="speed(3)">快
+                            <input type="radio">
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,38 +80,29 @@
 
 
         <hr>
-        <div><spn>劉長庚 &nbsp; 天主教輔仁大學資訊工程所</spn> 
+        <div>
+            <spn>劉長庚 &nbsp; 天主教輔仁大學資訊工程所</spn>
             <div class="float-right">
                 <a href="https://www.facebook.com/dannyliu.me/">fb:長庚的作業簿</a>
                 &nbsp; &nbsp;
                 <a href="https://github.com/dannypc1628/Mazu">程式碼:github</a>
-            </div> 
+            </div>
         </div>
         <br>
         <br>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUayTXWD6h2pdcPoEBdnnyRTRLvb_Qak8&callback=initMap"></script>
-    <script type="application/javascript" src="js/getData.js"></script>
-    <script type="application/javascript" src="js/map.js"></script>
-    <script type="application/javascript" src="js/year.js"></script>
-    <script type="application/javascript" src="js/twYear.js"></script>
-    <script type="application/javascript" src="js/twCounty.js"></script>
-    <script type="application/javascript" src="js/subtitle.js"></script>
-    <script type="application/javascript" src="js/Main.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75610329-2"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-75610329-2');
+        gtag('config', 'UA-75610329-2');
     </script>
 
-   
+
 </body>
+
 </html>
